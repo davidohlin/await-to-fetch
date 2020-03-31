@@ -1,13 +1,17 @@
-module.exports = function to(promise) {
+module.exports = function to(promise, props) {
 	return promise
 		.then(response => {
 			if (response.hasOwnProperty('ok') && !response.ok) {
 				const err = new Error(response.statusText)
+				if (props) Object.assign(err, props)
+
 				return [err, undefined]
 			}
 			return [null, response]
 		})
 		.catch(err => {
+			if (props) Object.assign(err, props)
+
 			return [err, undefined]
 		})
 }

@@ -25,8 +25,17 @@ describe('await tests', () => {
 		expect(res).toEqual(input)
 	})
 
+	it('should return an error with passed props when promise is rejected', async () => {
+		const input = new Error('error')
+		const props = { cool: 'beans' }
+		const [err, res] = await to(Promise.reject(input), props)
+
+		expect(err.foo).toEqual(props.foo)
+		expect(res).toBeUndefined()
+	})
+
 	it('should return an error when promise is rejected', async () => {
-		const input = 'Error'
+		const input = new Error('error')
 		const [err, res] = await to(Promise.reject(input))
 
 		expect(err).toEqual(input)
