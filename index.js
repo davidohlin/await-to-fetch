@@ -1,7 +1,11 @@
 module.exports = function to(promise, props) {
 	return promise
 		.then(response => {
-			if (response.hasOwnProperty('ok') && !response.ok) {
+			if (
+				typeof response === 'object' &&
+				response.constructor.name === 'Response' &&
+				!response.ok
+			) {
 				const err = new Error(response.statusText)
 				if (props) Object.assign(err, props)
 

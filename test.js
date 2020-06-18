@@ -9,12 +9,12 @@ describe('await tests', () => {
 		expect(res).toEqual(input)
 	})
 
-	it('should return an error when promise is resolved with { ok: false }', async () => {
+	it('should return a value when promise is resolved with { ok: false }', async () => {
 		const input = { ok: false }
 		const [err, res] = await to(Promise.resolve(input))
 
-		expect(err instanceof Error).toBe(true)
-		expect(res).toBeUndefined()
+		expect(err instanceof Error).toBe(false)
+		expect(res).toEqual(input)
 	})
 
 	it('should return value when promise is resolved without an ok-flag', async () => {
