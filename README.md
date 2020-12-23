@@ -1,9 +1,7 @@
-# await-to-fetch
+# await-to-fetch [![Build Status](https://github.com/davidohlin/await-to-fetch/workflows/build/badge.svg)](https://github.com/davidohlin/await-to-fetch/actions)
 
-Easy error handling for async/await fetch requests without try/catch blocks.
-It's basically [await-to-js](https://github.com/scopsy/await-to-js), but it
-works with [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-by looking at the `response.ok` flag.
+Easy error handling for async/await without try/catch blocks that
+works with [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
 ## Install
 
@@ -17,17 +15,17 @@ $ npm install await-to-fetch
 import to from 'await-to-fetch'
 
 async function example() {
-	const [err, res] = await to(fetch('https://httpstat.us/200'))
+  const [err, res] = await to(fetch('https://httpstat.us/200'))
 
-	if (err) {
-		throw err
-	}
+  if (err) {
+    throw err
+  }
 
-	console.log(res)
+  return res
 }
 ```
 
 ## Credits
 
--   [await-to-js](https://github.com/scopsy/await-to-js)
--   [Handling Failed HTTP Responses With fetch()](https://www.tjvantoll.com/2015/09/13/fetch-and-errors/)
+- [await-to-js](https://github.com/scopsy/await-to-js)
+- [Handling Failed HTTP Responses With fetch()](https://www.tjvantoll.com/2015/09/13/fetch-and-errors/)
