@@ -2,19 +2,28 @@
   "name": "await-to-fetch",
   "version": "1.2.0",
   "description": "Async await wrapper for easy error handling when using fetch",
-  "main": "index.js",
+  "main": "dist/await-to-fetch.umd.js",
+  "module": "dist/await-to-fetch.esm.js",
   "scripts": {
-    "tsc": "tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "build": "rimraf dist && rollup -c",
+    "dev": "rollup -c -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.9.0",
+    "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-node-resolve": "^11.0.1",
     "babel-jest": "^25.2.4",
     "jest": "^25.2.4",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.35.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^9.1.0",
     "typescript": "^4.1.3"
   }
 }
