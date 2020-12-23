@@ -1,4 +1,4 @@
-import to from './'
+const to = require('./dist/await-to-fetch.umd.js')
 
 it('should return a value when promise is resolved with { ok: true }', async () => {
 	const input = { ok: true }
