@@ -18,7 +18,7 @@
     "@babel/preset-typescript": "^7.12.7",
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-node-resolve": "^11.0.1",
-    "babel-jest": "^25.2.4",
+    "babel-jest": "^29.7.0",
     "jest": "^29.3.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.35.1",
